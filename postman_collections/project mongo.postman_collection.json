@@ -7,6 +7,140 @@
 	},
 	"item": [
 		{
+			"name": "books",
+			"item": [
+				{
+					"name": "add book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTEyIiwiZW1haWwiOiJvbWVyQHlhaG9vLmNvbSIsImZpcnN0X25hbWUiOiJvbWVyMiIsImxhc3RfbmFtZSI6Imh1c3NhaW4yIiwiZnVsbF9uYW1lIjoib21lciBodXNzYWluIiwiaWRlbnRpdHlfaW1nIjoiYTgzYjUxY2IzNGY5MGRiOGI5NzQ0MTBlZjJlOGE4MGMzLmpwZWciLCJwaG9uZSI6IjIxMzIxMzEwMSIsInRva2VuIjoic2FkYXNkYXNkIiwic29jaWFsX21lZGlhIjoiZmFjZWJvb2siLCJpZCI6IjEyNDlmNDJjLTcwZWYtNGQ5Yy04ZTViLWM1ZGRkMTMwNWY5MSIsImlhdCI6MTY1NDAxODQxOX0.YJ3c8YvqKaL6gxQr_guACcaP2PCueaa6LMyk7wKOws8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_cover",
+									"type": "file",
+									"src": "/C:/Users/b/Downloads/5a17d1f6009c8565a0b101010d1a923c227 (1).jpeg"
+								},
+								{
+									"key": "book_title",
+									"value": "harry potter",
+									"type": "text"
+								},
+								{
+									"key": "author_name",
+									"value": "harry",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "harry potter",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/addBooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"addBooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTEyIiwiZW1haWwiOiJvbWVyQHlhaG9vLmNvbSIsImZpcnN0X25hbWUiOiJvbWVyMiIsImxhc3RfbmFtZSI6Imh1c3NhaW4yIiwiZnVsbF9uYW1lIjoib21lciBodXNzYWluIiwiaWRlbnRpdHlfaW1nIjoiYTgzYjUxY2IzNGY5MGRiOGI5NzQ0MTBlZjJlOGE4MGMzLmpwZWciLCJwaG9uZSI6IjIxMzIxMzEwMSIsInRva2VuIjoic2FkYXNkYXNkIiwic29jaWFsX21lZGlhIjoiZmFjZWJvb2siLCJpZCI6IjEyNDlmNDJjLTcwZWYtNGQ5Yy04ZTViLWM1ZGRkMTMwNWY5MSIsImlhdCI6MTY1NDAxODQxOX0.YJ3c8YvqKaL6gxQr_guACcaP2PCueaa6LMyk7wKOws8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_title\":\"book\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/addCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTEyIiwiZW1haWwiOiJvbWVyQHlhaG9vLmNvbSIsImZpcnN0X25hbWUiOiJvbWVyMiIsImxhc3RfbmFtZSI6Imh1c3NhaW4yIiwiZnVsbF9uYW1lIjoib21lciBodXNzYWluIiwiaWRlbnRpdHlfaW1nIjoiYTgzYjUxY2IzNGY5MGRiOGI5NzQ0MTBlZjJlOGE4MGMzLmpwZWciLCJwaG9uZSI6IjIxMzIxMzEwMSIsInRva2VuIjoic2FkYXNkYXNkIiwic29jaWFsX21lZGlhIjoiZmFjZWJvb2siLCJpZCI6IjEyNDlmNDJjLTcwZWYtNGQ5Yy04ZTViLWM1ZGRkMTMwNWY5MSIsImlhdCI6MTY1NDAxODQxOX0.YJ3c8YvqKaL6gxQr_guACcaP2PCueaa6LMyk7wKOws8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/getAllCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getAllCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "register user",
 			"request": {
 				"method": "POST",
@@ -92,6 +226,36 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9tZXJAeWFob28uY29tIiwidXNlcm5hbWUiOiJPbWVyIiwiaWQiOiJmMTU2YzU0Ni1kYjE1LTQ0OWEtYTZhZC1kYTM5ZWVjNmYwZTEiLCJpYXQiOjE2NTQ3OTcyNDJ9.0dxUDBITxqX02o91baihWSxFV730LlVe09duci6VLIE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
