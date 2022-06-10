@@ -17,6 +17,8 @@ module.exports = mongoose => {
             author_name:String,
             category_id: String,
             description: String,
+            isDelete: { type: Boolean, default: false }
+
         },
 
 

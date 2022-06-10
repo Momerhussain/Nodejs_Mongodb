@@ -51,8 +51,8 @@ exports.addCategory = async (req, res) => {
         return;
     }
 
-    let cat = await Category.findOne({ category_title:req.body.category_title });
-    if (cat) return res.status(409).json({ code: 0, data: `Category already exists with this name ${req.body.category_title} .` });
+    let cat = await Category.findOne({ category_title: req.body.category_title });
+    if (cat) return res.status(409).json({ code: 0, data: `Category already exists with this name '${req.body.category_title}' .` });
 
     const category = new Category({
         category_title: req.body.category_title,
@@ -76,12 +76,38 @@ exports.addCategory = async (req, res) => {
 
 exports.getAllCategory = async (req, res) => {
     try {
-
-        let category = await Category.find().sort('-createdAt');
+        let filter = {
+           isDelete: false
+        }
+        let category = await Category.find(filter).sort('-createdAt');
         if (category.length === 0) return res.status(200).send({ code: 0, data: "No category found" })
         return res.status(200).send({ code: 1, data: category });
     }
     catch (err) {
         res.status(500).send(err.stack)
+    }
+}
+
+exports.deleteBook = async (req, res) => {
+    try {
+        const { id } = req.params
+        let book = await Books.findOneAndUpdate({ id }, { isDelete: true }, { returnOriginal: false });
+        if (!book) return res.status(200).send({ code: 0, data: `No Book Found by this id: ${id}` })
+        return res.status(200).json({ code: 1, data: "Book Deleted Successfully" })
+    }
+    catch (err) {
+        res.status(500).send(err.message)
+    }
+}
+
+exports.deleteCategory = async (req, res) => {
+    try {
+        const { id } = req.params
+        let category = await Category.findOneAndUpdate({ id }, { isDelete: true }, { returnOriginal: false });
+        if (!category) return res.status(200).send({ code: 0, data: `No category Found by this id: ${id}` })
+        return res.status(200).json({ code: 1, data: "Category Deleted Successfully" })
+    }
+    catch (err) {
+        res.status(500).send(err.message)
     }
 }

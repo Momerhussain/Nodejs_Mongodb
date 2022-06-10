@@ -11,6 +11,8 @@ module.exports = app => {
     router.post("/addCategory", authenticate,books.addCategory);
     
     router.get("/getAllCategory", authenticate,books.getAllCategory);
+    router.get("/deleteBook/:id", authenticate, books.deleteBook);
+    router.get("/deleteCategory/:id", authenticate, books.deleteCategory);
 
 
     app.use('/api', router);

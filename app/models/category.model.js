@@ -12,7 +12,8 @@ module.exports = mongoose => {
                 required: true,
                 index: true
             },
-            category_title: String
+            category_title: String,
+            isDelete: { type: Boolean, default: false }
         },
 
 
