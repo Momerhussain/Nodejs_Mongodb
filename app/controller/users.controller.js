@@ -21,6 +21,7 @@ exports.usersSignup = async (req, res) => {
         password: req.body.password,
         oldPwd: req.body.oldPwd,
         username: req.body.username,
+        userType: req.body.userType,
         
     });
     await users.save(users)
@@ -59,6 +60,7 @@ exports.Login = async (req, res) => {
 
                 var session = req.session;
                 session.userId = body.email;
+                session.userType = user.userType;
 
                 //password empty for token.
                 user.password = undefined;

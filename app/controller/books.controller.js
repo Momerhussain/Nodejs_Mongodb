@@ -111,3 +111,17 @@ exports.deleteCategory = async (req, res) => {
         res.status(500).send(err.message)
     }
 }
+
+exports.getAllBooks = async (req, res) => {
+    try {
+        let filter = {
+           isDelete: false
+        }
+        let books = await Books.find(filter).sort('-createdAt');
+        if (books.length === 0) return res.status(200).send({ code: 0, data: "No Books found" })
+        return res.status(200).send({ code: 1, data: books });
+    }
+    catch (err) {
+        res.status(500).send(err.stack)
+    }
+}

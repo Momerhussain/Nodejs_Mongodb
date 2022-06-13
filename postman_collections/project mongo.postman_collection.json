@@ -139,6 +139,36 @@
 					"response": []
 				},
 				{
+					"name": "get all books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTEyIiwiZW1haWwiOiJvbWVyQHlhaG9vLmNvbSIsImZpcnN0X25hbWUiOiJvbWVyMiIsImxhc3RfbmFtZSI6Imh1c3NhaW4yIiwiZnVsbF9uYW1lIjoib21lciBodXNzYWluIiwiaWRlbnRpdHlfaW1nIjoiYTgzYjUxY2IzNGY5MGRiOGI5NzQ0MTBlZjJlOGE4MGMzLmpwZWciLCJwaG9uZSI6IjIxMzIxMzEwMSIsInRva2VuIjoic2FkYXNkYXNkIiwic29jaWFsX21lZGlhIjoiZmFjZWJvb2siLCJpZCI6IjEyNDlmNDJjLTcwZWYtNGQ5Yy04ZTViLWM1ZGRkMTMwNWY5MSIsImlhdCI6MTY1NDAxODQxOX0.YJ3c8YvqKaL6gxQr_guACcaP2PCueaa6LMyk7wKOws8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/getAllBooks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getAllBooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "delete book",
 					"request": {
 						"auth": {
@@ -209,7 +239,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\":\"Omer\",\r\n    \"email\":\"omer@yahoo.com\",\r\n    \"password\":\"omer123\"\r\n\r\n    \r\n}",
+					"raw": "{\r\n    \"username\":\"Omer\",\r\n    \"email\":\"omer@yahoo.com\",\r\n    \"password\":\"omer123\",\r\n    \"userType\":\"author\"\r\n\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

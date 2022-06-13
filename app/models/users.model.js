@@ -29,7 +29,7 @@ module.exports = mongoose => {
                 },
                 required: [true, 'User email required']
             },
-            
+            userType:String,
             username: String,
             password: String,
             oldPwd: String,
